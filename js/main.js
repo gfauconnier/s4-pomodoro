@@ -2,7 +2,7 @@ var breakTime = 5;
 var sessionTime = 20;
 var stepType = ["Session", "Break"];
 var stopped = true;
-var intervalPom;
+var intervalPomo;
 var intervalTime = sessionTime;
 
 
@@ -35,12 +35,11 @@ $(".sessionbtn").click(function() {
 
 $(".chrono").click(function() {
   if (stopped) {
-    stepType[0] == "Session" ? intervalTime = sessionTime : intervalTime = breakTime;
-    intervalPom = setInterval(chronoPomo, 1000);
     stopped = false;
+    intervalPomo = setInterval(chronoPomo, 1000);
   } else {
     stopped = true;
-    clearInterval(intervalPom);
+    clearInterval(intervalPomo);
   }
 });
 
@@ -57,8 +56,7 @@ function chronoPomo() {
   }
 }
 
-
 function formatTime(fTime) {
-  fTime = ("0" + Math.floor(intervalTime / 60)).slice(-2) + " : " + ("0" + intervalTime % 60).slice(-2);
+  fTime = ("0" + Math.floor(fTime / 60)).slice(-2) + " : " + ("0" + fTime % 60).slice(-2);
   return fTime;
 }
