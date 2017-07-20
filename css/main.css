@@ -1,0 +1,67 @@
+div.box
+{
+    width: 90vw;
+    height: 90vh;
+    margin-left: 5vw;
+
+    flex-wrap: wrap;
+}
+
+div.box,
+div.break,
+div.session,
+div.chrono
+{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+}
+
+div.break,
+div.session
+{
+    width: 30%;
+    height: 20%;
+    margin-top: 20px;
+
+    align-items: baseline;
+}
+
+div.displayTime
+{
+    position: relative;
+
+    width: 90vw;
+}
+
+div.chrono
+{
+    flex-direction: column;
+
+    width: 35vw;
+    height: 35vw;
+    margin: auto;
+
+    border: 3px solid black;
+    border-radius: 50%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+div.filler
+{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 27.5vw;
+
+    display: none;
+
+    width: 35vw;
+    height: 35vw;
+
+    border-radius: 50%;
+    background-color: lightblue;
+}
