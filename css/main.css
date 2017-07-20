@@ -50,6 +50,10 @@ div.chrono
     align-items: center;
 }
 
+div.chrono p {
+  font-size: 200%;
+}
+
 div.filler
 {
     position: absolute;
