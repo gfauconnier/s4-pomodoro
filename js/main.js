@@ -10,7 +10,7 @@ var intervalTime = sessionTime;
 $("#breakP").text("Break time : " + breakTime);
 $("#sessionP").text("Session time : " + sessionTime);
 $("#step").text(stepType[0]);
-$("#chronoP").text(formatTime(sessionTime));
+$("#chronoP").text(sessionTime);
 
 $(".breakbtn").click(function() {
   if (stopped) {
@@ -37,7 +37,7 @@ $(".sessionbtn").click(function() {
 $(".chrono").click(function() {
   if (stopped) {
     if (firstStep) {
-      intervalTime = sessionTime;
+      intervalTime = sessionTime * 60;
       $("#chronoP").text(formatTime(intervalTime));
     }
     firstStep = false;
@@ -46,6 +46,7 @@ $(".chrono").click(function() {
     animation();
   } else {
     stopped = true;
+    $(".filler").stop();
     clearInterval(intervalPomo);
   }
 });
@@ -56,7 +57,7 @@ function chronoPomo() {
     $("#chronoP").text(formatTime(intervalTime));
   } else {
     stepType.push(stepType.shift());
-    stepType[0] == "Session" ? intervalTime = sessionTime : intervalTime = breakTime;
+    stepType[0] == "Session" ? intervalTime = sessionTime * 60 : intervalTime = breakTime * 60;
     $("#step").text(stepType[0]);
     $("#chronoP").text(formatTime(intervalTime));
     animation();
@@ -69,5 +70,12 @@ function formatTime(fTime) {
 }
 
 function animation() {
-  stepType[0] == "Session" ? $(".filler").animate({"left" : "27.5vw"}, intervalTime * 1000) : $(".filler").animate({"left" : "-7.5vw"}, intervalTime * 1000);
+  if(stepType[0] == "Session") {
+    $(".filler").css("background-color", "rgb(17, 181, 8)");
+    $(".filler").animate({"width" : "35vw"}, intervalTime * 1000);
+
+  } else {
+    $(".filler").css("background-color", "rgb(247, 174, 10)")
+    $(".filler").animate({"width" : "0vw"}, intervalTime * 1000);
+  }
 }
