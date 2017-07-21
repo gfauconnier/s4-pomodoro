@@ -50,8 +50,9 @@ div.chrono
     align-items: center;
 }
 
-div.chrono p {
-  font-size: 200%;
+div.chrono p
+{
+    font-size: 200%;
 }
 
 div.filler
@@ -59,9 +60,8 @@ div.filler
     position: absolute;
     z-index: -1;
     top: 0;
-    left: 27.5vw;
-
-    display: none;
+    left: -7.5vw;
+    /*display: none;*/
 
     width: 35vw;
     height: 35vw;
