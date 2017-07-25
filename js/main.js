@@ -110,7 +110,7 @@ function formatTime(fTime) {
 /**
  * animation - animates the div depending on the step (session or break)
  *
- * @return {type}  nothing to return 
+ * @return {type}  nothing to return
  */
 function animation() {
   if (stepType[0] == "Session") {
